@@ -1,0 +1,68 @@
+.homeBanner{
+	text-align: center;
+}
+.heading {
+	font-family: Geneva;
+	font-size: 60px;
+	color: #ECF0F1;
+}
+
+body {
+	background-color: #99A3A4;
+}
+
+.mainContent {
+	margin-left: 400px;
+	margin-right: 400px;
+}
+
+img{
+	max-width: 100%;
+	max-height: 100%;
+	display: block;
+}
+.colorCovert {
+	color: red;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.colorContraband {
+	color: yellow;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.colorClassified {
+	color: #AF7AC5;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.colorConvertKnife {
+	color: red;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.price {
+	color: #FDFEFE;
+	font-size: 20px;
+}
+
+.name {
+	color: #EAECEE;
+	font-size: 24px;
+}
+.box {
+	background-color: #757575;
+	text-align: center;
+	display:inline-block;
+	padding:25px;
+	border-radius:10px;
+	margin: 10px;
+	border: 2px solid black;
+	width: 285px;
+	height: 400px;
+}
+h1.zero:before{
