@@ -5,17 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CS:Marke/styles.css"</title>
 <link href="css/styles.css" rel="stylesheet" type="text/css">
+<script src="csgoMarket.js"></script>
 </head>
 
 <body>
 
 <header>
-	<img src="img/logo.png" alt="CS:Go Market. logo" class="logo">
+	
 	<nav>
+		<img src="" alt="CS:Go Market. logo" class="logo">
 		<ul>
-			<li><a href=" ">Home</a></li>
-			<li><a href=" ">Buy</a></li>
-			<li><a href=" ">Sell</a></li>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="buy.html">Buy</a></li>
+			<li class="cart">
+				<a href="cart.html">
+					<ion-icon name="server-outline"></ion-icon>Cart <span>0</span>
+				</a>
 		</ul>
 	</nav>	
 </header>
@@ -37,9 +42,7 @@
 		<div class="price">
 			<p class="nomargin">A$ 110 - $ 530</p>
 		</div>
-		<div class = "addItemButton">
-			<button>Add to cart</button>
-		</div>
+		<a class="add-cart cart 1" href="#"> Add to Cart </a>
 	</div>
 	
 	<div class="box">
@@ -51,9 +54,7 @@
 		<div class="price">
 			<p class="nomargin">A$ 1000 - $ 500</p>
 		</div>
-		<div class = "addItemButton">
-			<button>Add to cart</button>
-		</div>
+		<a class="add-cart cart 2" href="#"> Add to Cart </a>
 	</div>
 	
 	<div class="box">
@@ -65,9 +66,7 @@
 		<div class="price">
 			<p class="nomargin">A$ 500 - $ 2000</p>
 		</div>
-		<div class = "addItemButton">
-			<button>Add to cart</button>
-		</div>
+		<a class="add-cart cart 3" href="#"> Add to Cart </a>
 	</div>
 	
 	<div class="box">
@@ -79,9 +78,7 @@
 		<div class="price">
 			<p class="nomargin">A$ 15 - $ 40</p>
 		</div>
-		<div class = "addItemButton">
-			<button>Add to cart</button>
-		</div>
+		<a class="add-cart cart 4" href="#"> Add to Cart </a>
 	</div>
 	
 	<div class="box">
@@ -93,9 +90,7 @@
 		<div class="price">
 			<p class="nomargin">A$ 35 - $ 72</p>
 		</div>
-		<div class = "addItemButton">
-			<button>Add to cart</button>
-		</div>
+		<a class="add-cart cart 5" href="#"> Add to Cart </a>
 	</div>
 	
 	<div class="box">
@@ -107,11 +102,11 @@
 		<div class="price">
 			<p class="nomargin">A$ 150 - $ 780</p>
 		</div>
-		<div class = "addItemButton">
-			<button>Add to cart</button>
-		</div>
+		<a class="add-cart cart 6" href="#"> Add to Cart </a>
 	</div>
 </section>
+<script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+<script src="main.js"></script>
 
 </body>
 </html>
