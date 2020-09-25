@@ -45,6 +45,15 @@ for (let i=0; i<carts.length; i++) {
 	})
 }
 
+//keep the data on index page in case of refresh aka sync the data on the index file with the local storage even after refresh
+function onLoadCartNumbers() {
+	let productNumbers = localStorage.getItem('cartNumbers');
+	
+	if(productNumbers) {
+		document.querySelector('.cart span').textContent = productNumbers;
+	}
+}
+
 function cartNumbers() {
 	let productNumbers = localStorage.getItem('cartNumbers');
 	
@@ -54,10 +63,13 @@ function cartNumbers() {
 	// Allow the cart to be able to increment instead of just 1
 	if (productNumbers) {
 			localStorage.setItem('cartNumbers', productNumbers +1);
+			document.querySelector('.cart span').textContent = productNumbers +1;  //update the cart data to the cart symbol on index page
 	} else {
 		localStorage.setItem('cartNumbers', 1);
+		document.querySelector('.cart span').textContent = 1;
 	}
 	
 	
 }
+onLoadCartNumbers();
 
