@@ -34,14 +34,15 @@ let products = [
 {
 	name: "AK-47 Aquamarine",
 	tag: "akaquamarine",
-	price: 789,
+	price: 780,
 	inCart: 0
 }
 ];
 
 for (let i=0; i<carts.length; i++) {
 	carts[i].addEventListener('click', () => {
-			cartNumbers();
+			cartNumbers(products[i]); // to know which product that is clicked
+			totalCost(products[i]); // total Cost
 	})
 }
 
@@ -54,7 +55,8 @@ function onLoadCartNumbers() {
 	}
 }
 
-function cartNumbers() {
+function cartNumbers(product) {
+	
 	let productNumbers = localStorage.getItem('cartNumbers');
 	
 	productNumbers = parseInt(productNumbers);  // Change result from string to integer
@@ -69,7 +71,79 @@ function cartNumbers() {
 		document.querySelector('.cart span').textContent = 1;
 	}
 	
-	
+	setItems(product);
 }
-onLoadCartNumbers();
 
+function setItems(product) {
+	let cartItems = localStorage.getItem('productsInCart');
+	cartItems = JSON.parse(cartItems);
+	
+	if(cartItems != null) {  //when cart is 0, else gonna make any click become 1
+		
+		if(cartItems[product.tag] == undefined) {  //allow users to click multiple items instead of error when switch to different items
+			cartItems = { //when the items is undefined, update the new product
+				...cartItems,
+				[product.tag]: product
+			}
+		}
+		cartItems [product.tag].inCart += 1;
+	} 
+	else {
+		product.inCart = 1;
+	
+		cartItems = {
+			[product.tag]: product
+	}
+
+	}
+	
+	localStorage.setItem("productsInCart", JSON.stringify(cartItems));//update the items' data to the local storage
+}
+
+function totalCost(product) {
+	
+	let cartCost = localStorage.getItem('totalCost');
+	
+	if (cartCost != null) {
+		cartCost = parseInt(cartCost); //convert string into number
+		localStorage.setItem("totalCost", cartCost + product.price);
+	} else {
+	
+	localStorage.setItem("totalCost", product.price);
+	
+	}
+}
+	
+	function displayCart() {
+		let cartItems = localStorage.getItem("productsInCart");
+		cartItems = JSON.parse(cartItems);
+		let productContainer = document.querySelector(".products");
+	
+		if(cartItems && productContainer) {
+			
+			productContainer.innerHTML = '';
+			Object.values(cartItems).map(item => {  //avoid items to overlap
+				productContainer.innerHTML += `
+				<div class="product">
+					<ion-icon name="close-circle"></ion-icon>
+					
+					<span>${item.name}</span>
+				</div>
+				<div class="cartPrice"> ${item.price}</div>
+				<div class="quantity">
+					<span> ${item.inCart}</span>
+				</div>
+				<div class="total">
+					${item.inCart *item.price}
+				</div>
+				
+				`
+			})
+			
+			
+		}
+	}
+
+
+onLoadCartNumbers();
+displayCart();
