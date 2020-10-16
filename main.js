@@ -125,16 +125,13 @@ function totalCost(product) {
 			Object.values(cartItems).map(item => {  //avoid items to overlap
 				productContainer.innerHTML += `
 				<div class="product">
-					<ion-icon name="close-circle"></ion-icon>
 					
+					<img style="max-width:60%; max-height:60%; display:block;" src="./images/${item.tag}.png">
 					<span>${item.name}</span>
+					
 				</div>
-				<div class="cartPrice"> ${item.price}</div>
-				<div class="quantity">
-					<span> ${item.inCart}</span>
-				</div>
-				<div class="total">
-					${item.inCart *item.price}
+				<div>
+				<span>$${item.price},00</span>
 				</div>
 				
 				`
